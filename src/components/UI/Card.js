@@ -13,10 +13,9 @@ import React, { Component } from 'react'
  	}
 
  	render() {
-        console.dir(this.props.card);
  		return (
  		    <div className={card}>
-                    <img width="150" src={this.props.card.icon}/>
+                    <img width="150" src={(game_engine.isAllowedInvisibleCard() && this.props.card.is_face_up===true)?this.props.card.cover:this.props.card.icon}/>
             </div>
  		)
  	}

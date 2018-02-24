@@ -11,14 +11,39 @@ import Players from "./Players";
  	constructor(props, context) {
  		super(props, context);
  		this.state = {
-            cascade_update: this.props.cascade_update
+            cascade_update: this.props.cascade_update,
+            is_player_stick: false
         };
  	}
+
+    makePlayerStick() {
+        console.log("Player has stuck.");
+        this.setState({
+            is_player_stick: true
+        });
+        this.makeDealerCardsVisible();
+    }
 
     takeCardForPlayer() {
         game_engine.state.players[0].collectCard(game_engine.state.deck.dealCard());
         this.setState({cascade_update: this.state.cascade_update++});
     }
+
+    makeDealerCardsVisible() {
+        game_engine.makeAllCardsVisible();
+    }
+
+    componentWillMount() {
+        console.log("WillUpdate");
+    }
+    componentDidUpdate(prevProps, prevState) {
+        console.log("DidUpdate");
+        if (this.state.is_player_stick) {
+
+        }
+    }
+
+
 
  	render() {
         console.log("Render: Casino");
@@ -28,6 +53,7 @@ import Players from "./Players";
                 <Dealer cascade_update={this.state.cascade_update}/>
                 <Players cascade_update={this.state.cascade_update}/>
                 <button onClick={this.takeCardForPlayer.bind(this)}>take card</button>
+                <button onClick={this.makePlayerStick.bind(this)}>stick</button>
             </div>
  		)
  	}

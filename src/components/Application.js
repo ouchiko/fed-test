@@ -22,7 +22,6 @@ import Casino from './UI/Casino';
  		return (
  		    <div className="appmain">
                 <Casino title="FED Casino" cascade_update={this.state.cascade_update}/>
-                <div onClick={this.action_createCascadingUpdate.bind(this)}>HELLO</div>
             </div>
  		)
  	}

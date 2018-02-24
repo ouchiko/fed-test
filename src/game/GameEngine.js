@@ -14,6 +14,7 @@ export default class GameEngine {
             players: [],
             game_active: 0,
             should_reset: 0,
+            all_cards_visible: false,
             total_players: num_of_players+1 // Players + Dealer.
         };
         this.createGame(num_of_players);
@@ -29,6 +30,10 @@ export default class GameEngine {
         return this.state.dealer;
     }
 
+    isAllowedInvisibleCard() {
+        return !this.state.all_cards_visible;
+    }
+
     /**
      * Sets up the game base.
      * We need a dealer and N players.
@@ -38,6 +43,10 @@ export default class GameEngine {
         for (let i=0;i<num_of_players;i++) {
             this.state.players.push(new Player("Player"+i, false));
         }
+    }
+
+    makeAllCardsVisible() {
+        this.state.all_cards_visible = true;
     }
 
     /**

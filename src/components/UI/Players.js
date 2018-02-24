@@ -20,7 +20,6 @@ import Person from './Person';
         console.log("Render: Players");
         let myPlayers = game_engine.getPlayers();
         let playerContent = myPlayers.map((aPlayer, index)=>{
-            console.dir(aPlayer.getCards());
             return <Person key={index} cascade_update={this.state.cascade_update} cards={aPlayer.getCards()}/>;
         });
 

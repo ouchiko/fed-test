@@ -39,6 +39,7 @@ export default class Deck {
                  * elements are contained.
                  */
                 cardDeck.push({
+                    cover: 'https://s3-eu-west-1.amazonaws.com/hm-test-1/back.png',
                     icon: 'https://s3-eu-west-1.amazonaws.com/hm-test-1/'+cardIdentity+'_of_'+suit+'s.png',
                     code: suit+"-"+i,
                     is_face_up: false,
